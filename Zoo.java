@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class Zoo {
     private final String name;
-    private final int[][] size;
+    private final Integer[][] size; //length x width
     private final List<Animal> animals;
 
-    private Zoo(String name, int[][] size, List<Animal> animals) {
+    private Zoo(String name, Integer[][] size, List<Animal> animals) {
         this.name = name;
         this.size = size;
         this.animals = animals;
