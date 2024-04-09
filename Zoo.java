@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Zoo {
     private final String name;
@@ -12,13 +14,17 @@ public class Zoo {
         this.animals = animals;
     }
 
+    public List<String> getAnimalCategories() {
+        return this.animals.stream()
+                .map(animal -> animal.category)
+                .collect(Collectors.toList());
+    }
+
     @Override
     public String toString() {
-        return "Zoo{" +
-                "name='" + name + '\'' +
-                ", size=" + size + '\'' +
-                ", animals=" + animals +
-                '}';
+        return "Name: " + name + "\n" +
+                "Size (in square meters): " + size + '\n' +
+                "Available type animals: " + String.join(", ", getAnimalCategories());
     }
 
     @Override
